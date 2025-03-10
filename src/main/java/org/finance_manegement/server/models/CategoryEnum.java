@@ -2,6 +2,8 @@ package org.finance_manegement.server.models;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 public enum CategoryEnum {
     FOOD("Еда"),

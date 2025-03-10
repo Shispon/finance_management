@@ -8,7 +8,7 @@ import java.util.List;
 public interface ITransactionalService {
     void addTransaction(Transaction transaction);
     List<Transaction> getAllTransactions();
-    void updateTransaction(Transaction transaction);
-    void deleteTransaction(Transaction transaction);
+    void updateTransaction(Transaction transaction, int id);
+    void deleteTransaction(int id);
     List<Transaction> filterByCategory(CategoryEnum category);
 }

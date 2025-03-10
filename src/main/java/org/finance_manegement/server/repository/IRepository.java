@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface IRepository<T> {
     void create(T entity);
-    List<T> readAll();
-    T readById(int id);
-    void update(T entity);
-    void delete(T entity);
+    List<T> findAll();
+    T findById(int id);
+    void update(T entity, int id);
+    void delete(int id);
 }

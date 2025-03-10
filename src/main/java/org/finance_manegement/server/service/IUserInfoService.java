@@ -6,9 +6,10 @@ import java.util.List;
 
 public interface IUserInfoService {
     void createUserInfo(UserInfo userInfo);
-    void updateUserInfo(UserInfo userInfo);
-    void deleteUserInfo(UserInfo userInfo);
+    void updateUserInfo(UserInfo userInfo,int id);
+    void deleteUserInfo(int id);
     UserInfo getUserInfoById(int id);
     UserInfo getUserInfoByUserId(int userId);
     List<UserInfo> getAllUsersInfo();
+    UserInfo setBudget(int userId,Double budget);
 }
