@@ -7,7 +7,9 @@ import java.util.List;
 public interface IPurposeService {
     void addPurpose(Purpose purpose);
     List<Purpose> getAllPurposes();
-    void updateGoal(Purpose purpose);
-    void deletePurpose(Purpose purpose);
-    double trackProgress(Purpose purpose);
+    void updatePurpose(Purpose purpose, int id);
+    void deletePurpose(int id);
+    double trackProgress(String name);
+    Purpose getPurposeById(int id);
+    Purpose addMoneyToPurpose(int id, double money);
 }
