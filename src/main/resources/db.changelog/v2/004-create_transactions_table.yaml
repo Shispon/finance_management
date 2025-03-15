@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-transactions-table
+      author: Shispon
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: transactions
+              schemaName: app
+      sql:
+        - CREATE TABLE app.transactions (
+          id INT PRIMARY KEY DEFAULT nextval('app.transaction_id_seq'),
+          date TIMESTAMP NOT NULL,
+          amount DOUBLE PRECISION NOT NULL,
+          category VARCHAR(50) NOT NULL CHECK (category IN (
+          'Еда', 'Транспорт', 'Развлечения', 'Коммунальные услуги',
+          'Покупки', 'Здоровье', 'Образование', 'Прочее'
+          )),
+          type VARCHAR(50) NOT NULL CHECK (type IN ('Доход', 'Расход')),
+          description TEXT,
+          user_info_id INT NOT NULL REFERENCES app.user_info(id) ON DELETE CASCADE
+          );

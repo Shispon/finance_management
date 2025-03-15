@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-table
+      author: Shispon
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: user
+              schemaName: app
+      sql:
+        - CREATE TABLE app.user (
+          id INT PRIMARY KEY DEFAULT nextval('app.user_id_seq'),
+          name VARCHAR(255) NOT NULL,
+          email VARCHAR(255) NOT NULL UNIQUE,
+          password VARCHAR(255) NOT NULL,
+          role VARCHAR(50) NOT NULL CHECK (role IN ('Пользователь', 'Администратор'))
+          );

@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-info-table
+      author: Shispon
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: user_info
+              schemaName: app
+      sql:
+        - CREATE TABLE app.user_info (
+          id INT PRIMARY KEY DEFAULT nextval('app.user_info_id_seq'),
+          user_id INT UNIQUE NOT NULL REFERENCES app.user(id) ON DELETE CASCADE,
+          monthly_budget DOUBLE PRECISION,
+          CONSTRAINT fk_user_info_user FOREIGN KEY (user_id) REFERENCES app.user(id)
+          );
