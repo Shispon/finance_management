@@ -15,7 +15,7 @@ databaseChangeLog:
           amount DOUBLE PRECISION NOT NULL,
           category VARCHAR(50) NOT NULL CHECK (category IN (
           'Еда', 'Транспорт', 'Развлечения', 'Коммунальные услуги',
-          'Покупки', 'Здоровье', 'Образование', 'Прочее'
+          'Покупки', 'Здоровье', 'Образование', 'Прочее','Зарплата'
           )),
           type VARCHAR(50) NOT NULL CHECK (type IN ('Доход', 'Расход')),
           description TEXT,

@@ -56,9 +56,7 @@ public class MainMenu {
         // Создаем UserInfo для нового пользователя
         UserInfo userInfo = new UserInfo(
                 user.getId(),
-                new ArrayList<>(),
-                0.0,
-                new ArrayList<>()
+                0.0
         );
         userInfoService.createUserInfo(userInfo);
 
