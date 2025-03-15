@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-schemas
+      author: Shispon
+      preConditions:
+        - onFail: MARK_RAN
+      changes:
+        - sql:
+            sql:
+              CREATE SCHEMA IF NOT EXISTS app;
+              CREATE SCHEMA IF NOT EXISTS service;
+            dbms: postgresql
+        - sql:
+            sql:
+              CREATE SEQUENCE IF NOT EXISTS app.user_id_seq START WITH 1;
+              CREATE SEQUENCE IF NOT EXISTS app.user_info_id_seq START WITH 1;
+              CREATE SEQUENCE IF NOT EXISTS app.transaction_id_seq START WITH 1;
+              CREATE SEQUENCE IF NOT EXISTS app.purpose_id_seq START WITH 1;
+            dbms: postgresql

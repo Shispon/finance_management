@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-purposes-table
+      author: Shispon
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: purposes
+              schemaName: app
+      sql:
+        - CREATE TABLE app.purposes (
+          id INT PRIMARY KEY DEFAULT nextval('app.purpose_id_seq'),
+          name VARCHAR(255) NOT NULL,
+          target_amount DOUBLE PRECISION NOT NULL,
+          current_amount DOUBLE PRECISION NOT NULL,
+          user_info_id INT NOT NULL REFERENCES app.user_info(id) ON DELETE CASCADE
+          );

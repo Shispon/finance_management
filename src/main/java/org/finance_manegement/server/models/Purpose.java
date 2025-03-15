@@ -10,10 +10,11 @@ public class Purpose {
     private String name;
     private double targetAmount; // Целевая сумма
     private double currentAmount; // Текущая сумма
-
-    public Purpose(String name, double targetAmount, double currentAmount) {
+    private int userInfoId;
+    public Purpose(String name, double targetAmount, double currentAmount, int userInfoId) {
         this.name = name;
         this.targetAmount = targetAmount;
         this.currentAmount = currentAmount;
+        this.userInfoId = userInfoId;
     }
 }

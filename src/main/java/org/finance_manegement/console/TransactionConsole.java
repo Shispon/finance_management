@@ -52,15 +52,8 @@ public class TransactionConsole {
         System.out.print("Описание: ");
         String description = scanner.nextLine();
 
-        Transaction transaction = new Transaction(
-                new Date(),
-                amount,
-                category,
-                type,
-                description
-        );
 
-        userInfoService.addTransactionToUser(currentUser.getId(), transaction);
+
         System.out.println("Транзакция добавлена!");
     }
 
@@ -98,7 +91,7 @@ public class TransactionConsole {
         int id = scanner.nextInt();
 
         UserInfo userInfo = userInfoService.getUserInfoByUserId(currentUser.getId());
-        userInfo.getTransactions().removeIf(t -> t.getId() == id);
+
         userInfoService.updateUserInfo(userInfo, userInfo.getId());
         System.out.println("Транзакция удалена!");
     }

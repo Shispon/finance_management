@@ -49,7 +49,7 @@ public class PurposeConsole {
         System.out.print("Целевая сумма: ");
         double target = scanner.nextDouble();
 
-        Purpose purpose = new Purpose(name, target, 0.0);
+        Purpose purpose = new Purpose(name, target, 0.0, 1);
         userInfoService.addPurposeToUser(currentUser.getId(), purpose);
         System.out.println("Цель создана!");
     }
@@ -107,7 +107,6 @@ public class PurposeConsole {
         int id = scanner.nextInt();
 
         UserInfo userInfo = userInfoService.getUserInfoByUserId(currentUser.getId());
-        userInfo.getPurposes().removeIf(p -> p.getId() == id);
         userInfoService.updateUserInfo(userInfo, userInfo.getId());
         System.out.println("Цель удалена!");
     }
